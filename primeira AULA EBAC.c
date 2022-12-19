@@ -1,7 +1,7 @@
-#include <stdio.h> //biblioteca de comunicaÃƒÂ§ÃƒÂ£o com o usuÃƒÂ¡rio
-#include <stdlib.h>//biblioteca responsÃƒÂ¡vel pela alocaÃƒÂ§ÃƒÂ£o de memÃƒÂ³ria
-#include <locale.h> //biblioteca de alocaÃƒÂ§ÃƒÂµes de texto por regiÃƒÂ£o
-#include <string.h> //biblioteca responsÃ¡vel por cuidar das strings
+#include <stdio.h> //biblioteca de comunicação com o usuário
+#include <stdlib.h>//biblioteca responsável pela alocação de memória
+#include <locale.h> //biblioteca de alocações de texto por região
+#include <string.h> //biblioteca respons?vel por cuidar das strings
 int registro(){
 	setlocale(LC_ALL, "Portuguese");
 	
@@ -14,11 +14,11 @@ int registro(){
     printf ("Digite o CPF a ser cadastrado:");
     scanf ("%s", cpf);
     
-    strcpy(arquivo, cpf); //responsÃ¡vel por copiar os valores das string
+    strcpy(arquivo, cpf); //respons?vel por copiar os valores das string
     
     FILE *file; //cria arquivo
     file = fopen(arquivo, "w"); //cria arquivo
-    fprintf(file,cpf); //salvo o valor da variÃ¡vel
+    fprintf(file,cpf); //salvo o valor da vari?vel
     fclose(file); //fecha o arquivo
     
     file = fopen (arquivo, "a");
@@ -70,11 +70,11 @@ int consulta () {
 	file = fopen(cpf, "r");
 	
 	if(file == NULL){
-		printf ("NÃ£o foi possÃ­vel o arquivo, nÃ£o localizado!\n");
+		printf ("Não foi possível o arquivo, não foi localizado!\n");
 }
 	
 	while(fgets(conteudo, 200, file) !=NULL){
-		printf("\nEssas sÃ£o as informaÃ§Ãµes do usuÃ¡rio: ");
+		printf("\nEssas são as informações do usuário: ");
 		printf("%s", conteudo);
 		printf("\n\n");
 	}
@@ -82,11 +82,25 @@ int consulta () {
 }
 
 int deletar (){
-	 printf ("VocÃª escolheu Deletar nomes!\n");
+    char cpf [40];
+    printf ("Digite o CPF a ser deletado:\n");
+    scanf ("%s",cpf);
+    remove(cpf);
+    FILE *file;
+    file = fopen(cpf, "r");
+
+    if(file == NULL) {
+        printf ("Usuário não se encontra no sistema!\n");
         system ("pause");
+    }
+    if(file != NULL) {
+        printf ("Usuário deletado com sucesso!");
+        system ("pause");
+    }
+
 }
 int main (){
-    int opcao=0;//Definindo variÃƒÂ¡veis
+    int opcao=0;//Definindo variáveis
     int laco=1;
 
     for (laco=1;laco=1;)
@@ -94,12 +108,12 @@ int main (){
 	system ("cls");
     setlocale (LC_ALL, "Portuguese");//Definindo a linguagem
 
-    printf ("\t###CartÃ³rio da EBAC###\n");//inÃƒÂ­cio do menu
-    printf ("\nESCOLHA A OPÃ‡ÃƒO DO MENU:\n\n");
+    printf ("\t###Cartório da EBAC###\n");//início do menu
+    printf ("\nESCOLHA A OPÇÂO DO MENU:\n\n");
     printf ("\t1 - Registrar Nomes\n");
     printf ("\t2 - Consultar nomes\n");
     printf ("\t3 - Deletar nomes\n\n");
-    printf ("\nDigite sua opÃ§Ã£o:"); //fim do menu
+    printf ("\nDigite sua opção:"); //fim do menu
 
     scanf ("%d", &opcao);
 
@@ -121,9 +135,11 @@ int main (){
 		
 
         default:
-        printf ("\nEsta opÃ§Ã£o nÃ£o estÃ¡ disponÃ­vel.\n");
+        printf ("\nEsta opção não está? disponível.\n");
         system ("pause");
         break;
     }
     }
 }
+
+
