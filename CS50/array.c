@@ -3,7 +3,7 @@
 #include <string.h>
 
 void si (int n);
-int j = 0;
+
 
 int main() {
     printf ("Type the number of lines the triangle in mario game gonna have:\n");
