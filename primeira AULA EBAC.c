@@ -1,25 +1,24 @@
-#include <stdio.h> //biblioteca de comunicaï¿½ï¿½o com o usuï¿½rio
-#include <stdlib.h>//biblioteca responsï¿½vel pela alocaï¿½ï¿½o de memï¿½ria
-#include <locale.h> //biblioteca de alocaï¿½ï¿½es de texto por regiï¿½o
-#include <string.h> //biblioteca respons?vel por cuidar das strings
-int registro(){//funï¿½ï¿½o responsï¿½vel por cadastrar os usuï¿½rios do sistema
+#include <stdio.h> //biblioteca de comunicaÃ§Ã£o com o usuÃ¡rio
+#include <stdlib.h>//biblioteca responsÃ¡vel pela alocaÃ§Ã£o de memÃ³ria
+#include <locale.h> //biblioteca de alocaÃ§Ãµes de texto por regiÃ£o
+#include <string.h> //biblioteca responsável por cuidar das strings
+int registro(){
 	setlocale(LC_ALL, "Portuguese");
-	//inï¿½cio criaï¿½ï¿½o das variï¿½veis/strings
+	
     char arquivo [40];
 	char cpf [40];
     char nome [40];
     char sobrenome [40];
     char cargo [40];
-    //final da criaï¿½ï¿½o das variï¿½veis/strings
     
-    printf ("Digite o CPF a ser cadastrado:"); //coletando informaï¿½ï¿½o do usuï¿½rio
-    scanf ("%s", cpf);//%s refere-se ï¿½ string
+    printf ("Digite o CPF a ser cadastrado:");
+    scanf ("%s", cpf);
     
-    strcpy(arquivo, cpf); //responsï¿½vel por copiar os valores das string
+    strcpy(arquivo, cpf); //responsável por copiar os valores das string
     
     FILE *file; //cria arquivo
     file = fopen(arquivo, "w"); //cria arquivo
-    fprintf(file,cpf); //salvo o valor da variï¿½vel
+    fprintf(file,cpf); //salvo o valor da variável
     fclose(file); //fecha o arquivo
     
     file = fopen (arquivo, "a");
@@ -71,11 +70,11 @@ int consulta () {
 	file = fopen(cpf, "r");
 	
 	if(file == NULL){
-		printf ("Nï¿½o foi possï¿½vel o arquivo, nï¿½o foi localizado!\n");
+		printf ("Não foi possível o arquivo, não localizado!\n");
 }
 	
 	while(fgets(conteudo, 200, file) !=NULL){
-		printf("\nEssas sï¿½o as informaï¿½ï¿½es do usuï¿½rio: ");
+		printf("\nEssas são as informações do usuário: ");
 		printf("%s", conteudo);
 		printf("\n\n");
 	}
@@ -93,17 +92,16 @@ int deletar (){
     file = fopen(cpf,"r");
 
     if(file == NULL) {
-        printf ("Usuï¿½rio nï¿½o se encontra no sistema!\n");
+        printf ("Usuário não se encontra no sistema!\n");
         system ("pause");
     }
     if(file != NULL) {
-        printf ("Usuï¿½rio deletado com sucesso!\n");
+        printf ("Usuário deletado com sucesso!\n");
         system ("pause");
     }
-
 }
 int main (){
-    int opcao=0;//Definindo variï¿½veis
+    int opcao=0;//Definindo variÃ¡veis
     int laco=1;
 
     for (laco=1;laco=1;)
@@ -111,16 +109,17 @@ int main (){
 	system ("cls");
     setlocale (LC_ALL, "Portuguese");//Definindo a linguagem
 
-    printf ("\t###Cartï¿½rio da EBAC###\n");//inï¿½cio do menu
-    printf ("\nESCOLHA A OPï¿½ï¿½O DO MENU:\n\n");
+    printf ("\t###Cartório da EBAC###\n");//inÃ­cio do menu
+    printf ("\nESCOLHA A OPÇÃO DO MENU:\n\n");
     printf ("\t1 - Registrar Nomes\n");
     printf ("\t2 - Consultar nomes\n");
-    printf ("\t3 - Deletar nomes\n\n");
-    printf ("\nDigite sua opï¿½ï¿½o:"); //fim do menu
+    printf ("\t3 - Deletar nomes\n");
+    printf ("\t4 - Sair do sistema\n\n");
+    printf ("\nDigite sua opção:"); //fim do menu
 
     scanf ("%d", &opcao);
 
-    system ("cls");//responsï¿½vel por liimpar a tela ao final da operaï¿½ï¿½o
+    system ("cls");
     
     switch (opcao)
     {
@@ -136,13 +135,15 @@ int main (){
        	deletar ();
         break;
 		
+		case 4:
+		printf ("Obrigado por utilizar o sistema!\n");
+		return 0;
+		break;
 
         default:
-        printf ("\nEsta opï¿½ï¿½o nï¿½o estï¿½ disponï¿½vel.\n");
+        printf ("\nEsta opção não está disponível.\n");
         system ("pause");
         break;
     }
     }
 }
-
-
