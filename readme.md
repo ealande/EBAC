@@ -1,2 +1,2 @@
-Meu primeiro sistema no Git on Linux.
+My first repository on Github.
 Alteração do readme.md
