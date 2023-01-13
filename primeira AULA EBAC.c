@@ -70,7 +70,7 @@ int consulta () {
 	file = fopen(cpf, "r");
 	
 	if(file == NULL){
-		printf ("Não foi possível o arquivo, não localizado!\n");
+		printf ("Não foi possível encontrar o arquivo, arquivo não localizado!\n");
 }
 	
 	while(fgets(conteudo, 200, file) !=NULL){
@@ -103,47 +103,62 @@ int deletar (){
 int main (){
     int opcao=0;//Definindo variÃ¡veis
     int laco=1;
-
-    for (laco=1;laco=1;)
-    {
-	system ("cls");
-    setlocale (LC_ALL, "Portuguese");//Definindo a linguagem
-
-    printf ("\t###Cartório da EBAC###\n");//inÃ­cio do menu
-    printf ("\nESCOLHA A OPÇÃO DO MENU:\n\n");
-    printf ("\t1 - Registrar Nomes\n");
-    printf ("\t2 - Consultar nomes\n");
-    printf ("\t3 - Deletar nomes\n");
-    printf ("\t4 - Sair do sistema\n\n");
-    printf ("\nDigite sua opção:"); //fim do menu
-
-    scanf ("%d", &opcao);
-
-    system ("cls");
+    char senhadigitada[10]="a";
     
-    switch (opcao)
-    {
-        case 1:
-        registro();
-        break;
+	printf ("\t###Cartório da EBAC###\n");//inÃ­cio do menu
+    printf ("Login de Administrador!\n\n Digite a sua senha:\n");
+    scanf ("%s", senhadigitada);
+    
+    if(senhadigitada[10] == "admin"){
+	
 
-        case 2:
-        consulta();
-        break;
-        
-        case 3:
-       	deletar ();
-        break;
-		
-		case 4:
-		printf ("Obrigado por utilizar o sistema!\n");
-		return 0;
-		break;
+	    for (laco=1;laco=1;)
+	    {
+		system ("cls");
+	    setlocale (LC_ALL, "Portuguese");//Definindo a linguagem
+	
+	    printf ("\t###Cartório da EBAC###\n");//inÃ­cio do menu
+	    printf ("\nESCOLHA A OPÇÃO DO MENU:\n\n");
+	    printf ("\t1 - Registrar Nomes\n");
+	    printf ("\t2 - Consultar nomes\n");
+	    printf ("\t3 - Deletar nomes\n");
+	    printf ("\t4 - Sair do sistema\n\n");
+	    printf ("\nDigite sua opção:"); //fim do menu
+	
+	    scanf ("%d", &opcao);
+	
+	    system ("cls");
+	    
+	    switch (opcao)
+	    {
+	        case 1:
+	        registro();
+	        break;
+	
+	        case 2:
+	        consulta();
+	        break;
+	        
+	        case 3:
+	       	deletar ();
+	        break;
+			
+			case 4:
+			printf ("Obrigado por utilizar o sistema!\n");
+			return 0;
+			break;
+	
+	        default:
+	        printf ("\nEsta opção não está disponível.\n");
+	        system ("pause");
+	        break;
+	    }
+	    }
 
-        default:
-        printf ("\nEsta opção não está disponível.\n");
-        system ("pause");
-        break;
-    }
-    }
-}
+	}
+	else {
+		printf("Senha incorreta!");
+	}
+
+
+}	    
