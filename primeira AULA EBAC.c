@@ -104,12 +104,14 @@ int main (){
     int opcao=0;//Definindo variáveis
     int laco=1;
     char senhadigitada[10]="a";
+    int comparacao;
     
 	printf ("\t###Cart�rio da EBAC###\n");//início do menu
     printf ("Login de Administrador!\n\n Digite a sua senha:\n");
     scanf ("%s", senhadigitada);
+    comparacao = strcmp(senhadigitada, "admin");
     
-    if(senhadigitada[10] == "admin"){
+    if(comparacao == 0){
 	
 
 	    for (laco=1;laco=1;)
