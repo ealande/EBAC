@@ -1,7 +1,7 @@
-#include <stdio.h> //biblioteca de comunicação com o usuário
-#include <stdlib.h>//biblioteca responsável pela alocação de memória
-#include <locale.h> //biblioteca de alocações de texto por região
-#include <string.h> //biblioteca respons�vel por cuidar das strings
+#include <stdio.h> //biblioteca de comunicaÃ§Ã£o com o usuÃ¡rio
+#include <stdlib.h>//biblioteca responsÃ¡vel pela alocaÃ§Ã£o de memÃ³ria
+#include <locale.h> //biblioteca de alocaÃ§Ãµes de texto por regiÃ£o
+#include <string.h> //biblioteca responsável por cuidar das strings
 int registro(){
 	setlocale(LC_ALL, "Portuguese");
 	
@@ -14,11 +14,11 @@ int registro(){
     printf ("Digite o CPF a ser cadastrado:");
     scanf ("%s", cpf);
     
-    strcpy(arquivo, cpf); //respons�vel por copiar os valores das string
+    strcpy(arquivo, cpf); //responsável por copiar os valores das string
     
     FILE *file; //cria arquivo
     file = fopen(arquivo, "w"); //cria arquivo
-    fprintf(file,cpf); //salvo o valor da vari�vel
+    fprintf(file,cpf); //salvo o valor da variável
     fclose(file); //fecha o arquivo
     
     file = fopen (arquivo, "a");
@@ -70,11 +70,11 @@ int consulta () {
 	file = fopen(cpf, "r");
 	
 	if(file == NULL){
-		printf ("N�o foi poss�vel encontrar o arquivo, arquivo n�o localizado!\n");
+		printf ("Não foi possível encontrar o arquivo, arquivo não localizado!\n");
 }
 	
 	while(fgets(conteudo, 200, file) !=NULL){
-		printf("\nEssas s�o as informa��es do usu�rio: ");
+		printf("\nEssas são as informações do usuário: ");
 		printf("%s", conteudo);
 		printf("\n\n");
 	}
@@ -92,21 +92,21 @@ int deletar (){
     file = fopen(cpf,"r");
 
     if(file == NULL) {
-        printf ("Usu�rio n�o se encontra no sistema!\n");
+        printf ("Usuário não se encontra no sistema!\n");
         system ("pause");
     }
     if(file != NULL) {
-        printf ("Usu�rio deletado com sucesso!\n");
+        printf ("Usuário deletado com sucesso!\n");
         system ("pause");
     }
 }
 int main (){
-    int opcao=0;//Definindo variáveis
+    int opcao=0;//Definindo variÃ¡veis
     int laco=1;
     char senhadigitada[10]="a";
     int comparacao;
     
-	printf ("\t###Cart�rio da EBAC###\n");//início do menu
+	printf ("\t###Cartório da EBAC###\n");//inÃ­cio do menu
     printf ("Login de Administrador!\n\n Digite a sua senha:\n");
     scanf ("%s", senhadigitada);
     comparacao = strcmp(senhadigitada, "admin");
@@ -119,13 +119,13 @@ int main (){
 		system ("cls");
 	    setlocale (LC_ALL, "Portuguese");//Definindo a linguagem
 	
-	    printf ("\t###Cart�rio da EBAC###\n");//início do menu
-	    printf ("\nESCOLHA A OP��O DO MENU:\n\n");
+	    printf ("\t###Cartório da EBAC###\n");//inÃ­cio do menu
+	    printf ("\nESCOLHA A OPÇÃO DO MENU:\n\n");
 	    printf ("\t1 - Registrar Nomes\n");
 	    printf ("\t2 - Consultar nomes\n");
 	    printf ("\t3 - Deletar nomes\n");
 	    printf ("\t4 - Sair do sistema\n\n");
-	    printf ("\nDigite sua op��o:"); //fim do menu
+	    printf ("\nDigite sua opção:"); //fim do menu
 	
 	    scanf ("%d", &opcao);
 	
@@ -145,13 +145,13 @@ int main (){
 	       	deletar ();
 	        break;
 			
-			case 4:
-			printf ("Obrigado por utilizar o sistema!\n");
-			return 0;
-			break;
+		case 4:
+		printf ("Obrigado por utilizar o sistema!\n");
+		return 0;
+		break;
 	
 	        default:
-	        printf ("\nEsta op��o n�o est� dispon�vel.\n");
+	        printf ("\nEsta opção não está disponível.\n");
 	        system ("pause");
 	        break;
 	    }
